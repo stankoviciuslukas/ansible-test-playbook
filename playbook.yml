@@ -2,44 +2,44 @@
 - hosts: sample-group
   become: yes
   tasks:
-  - name: Install packages
-    apt:
-      name:
-      - mysql-server
-      - libapache2-mod-auth-mysql
-      - php5-mysql
-      state: latest
-      cache_valid_time: 3600
+    - name: Install packages
+      apt:
+        name:
+        - mysql-server
+        - libapache2-mod-auth-mysql
+        - php5-mysql
+        state: latest
+        cache_valid_time: 3600
 
 - hosts: sample-group
   become: yes
   tasks:
-  - name: ensure apache is running
-    service:
-      name: apache2
-      state: started
+    - name: ensure apache is running
+      service:
+        name: apache2
+        state: started
 
-  - name: ensure apache is running
-    service:
-      name: apache2
-      state: started
+    - name: ensure apache is running
+      service:
+        name: apache2
+        state: started
 
-  - name: Check ping
-    ping:
+    - name: Check ping
+      ping:
 
-  - name: Install apache httpd  (state=present is optional)
-    hosts: sample-group
-    become: true
-    apt:
-      name: apache2
-      state: present
-      update_cache: yes
+    - name: Install apache httpd  (state=present is optional)
+      hosts: sample-group
+      become: true
+      apt:
+        name: apache2
+        state: present
+        update_cache: yes
 
 - hosts: sample-group
   become: yes
   tasks:
-  - name: Download example.svg
-    get_url:
-      url: https://upload.wikimedia.org/wikipedia/commons/8/84/Example.svg
-      dest: /etc/example.svg
-      mode: '0440'
+    - name: Download example.svg
+      get_url:
+        url: https://upload.wikimedia.org/wikipedia/commons/8/84/Example.svg
+        dest: /etc/example.svg
+        mode: '0440'
